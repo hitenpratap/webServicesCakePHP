@@ -17,7 +17,6 @@ class UsersController extends AppController
     }
 
     public function checkUserAuthenticate(){
-        $response=array();
         $servPassword=$this->request->header('servPassword');
         if($servPassword=='prabhathitenatish'){
             if($this->request->is('POST')){
@@ -25,26 +24,26 @@ class UsersController extends AppController
                 $password=$this->request->data('password');;
                 $users=$this->User->query("SELECT * FROM users where email='".$username."' AND password='".$password."'");
                 if($users){
-                    $response["statusCode"]=200;
-                    $response["message"]='user is available';
-                    $response['first_name']=$users[0]['users']['first_name'];
-                    $response['last_name']=$users[0]['users']['last_name'];
-                    $response['email']=$users[0]['users']['email'];
-                    $this->set(compact('response'));
+                    $statusCode=200;
+                    $message='user is available';
+                    $firstName=$users[0]['users']['first_name'];
+                    $lastName=$users[0]['users']['last_name'];
+                    $email=$users[0]['users']['email'];
+                    $this->set(compact('statusCode','message','firstName','lastName','email'));
                 }else{
-                    $response["statusCode"]=204;
-                    $response["message"]="User is not valid";
-                    $this->set(compact('response'));
+                    $statusCode=204;
+                    $message="User is not valid";
+                    $this->set(compact('statusCode','message'));
                 }
             }else{
-                $response["statusCode"]=405;
-                $response["message"]="No other methods than Post are allowed.";
-                $this->set(compact('response'));
+                $statusCode=405;
+                $message="No other methods than Post are allowed.";
+                $this->set(compact('statusCode','message'));
             }
         }else{
-            $response["statusCode"]=415;
-            $response["message"]="Api key must be set in Request Header.";
-            $this->set(compact('response'));
+            $statusCode=415;
+            $message="Api key must be set in Request Header.";
+            $this->set(compact('statusCode','message'));
         }
 
     }
@@ -54,59 +53,44 @@ class UsersController extends AppController
         $servPassword = $this->request->header('servPassword');
         if ($servPassword == 'prabhathitenatish') {
             if ($this->request->is("POST")) {
-                $username = $this->request->data('username');
-                $password = $this->request->data('password');
-                $firstName = $this->request->data('firstName');
-                $lastName = $this->request->data('lastName');
-                $mobile = $this->request->data('mobile');
+                $usernameForm = $this->request->data('username');
+                $passwordForm = $this->request->data('password');
+                $firstNameForm = $this->request->data('firstname');
+                $lastNameForm = $this->request->data('lastname');
+                $mobileForm = $this->request->data('mobile');
                 $dateCreated = date('Y-m-d H:i:s');
                 $lastUpdated = date('Y-m-d H:i:s');
-                $response = array();
-                if (empty($username)) {
-                    $response["username"] = "Email field can't be left blank.";
-                } else if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $username)) {
-                    $response["username"] = "Please enter correct email id.";
+                global $error;
+                if($usernameForm=='' || $passwordForm=='' || $firstNameForm=='' || $lastNameForm=='' || $mobileForm==''){
+                    $statusCode = 404;
+                    $message="Parameters are missing.Please submit the form again.";
+                    $this->set(compact('statusCode','message'));
+                    $error=1;
                 }
-                if (empty($password)) {
-                    $response["passwordErr"] = "Password field can't be left blank.";
-                }
-                if (empty($firstName)) {
-                    $response["firstNameErr"] = "First Name field can't be left blank.";
-                }
-                if (empty($lastName)) {
-                    $response["lastNameErr"] = "Last Name field can't be left blank.";
-                }
-                if (empty($mobile)) {
-                    $response["mobileErr"] = "Mobile field can't be left blank.";
-                }
-
-                if (empty($response)) {
-                    $this->User->query("insert into users values('" . "" . "','" . $username . "','" . $password . "','" . $firstName . "','" . $lastName . "','" . $mobile . "','" . $dateCreated . "','" . $lastUpdated . "')");
-                    $response['statusCode'] = 200;
-                    $response["username"] = $username;
-                    $response["password"] = $password;
-                    $response["firstName"] = $firstName;
-                    $response["lastName"] = $lastName;
-                    $response["mobile"] = $mobile;
-                    $response['msg'] = "user save successful";
-                    $this->set(compact('response'));
+                else if($error!=1){
+                    $this->User->query("insert into users values('" . "" . "','" . $usernameForm . "','" . md5($passwordForm) . "','" . $firstNameForm . "','" . $lastNameForm . "','" . $mobileForm . "','" . $dateCreated . "','" . $lastUpdated . "')");
+                    $statusCode = 200;
+                    $userName = $usernameForm;
+//                    $passWord = $passwordForm;
+                    $firstName = $firstNameForm;
+                    $lastName = $lastNameForm;
+                    $mobile = $mobileForm;
+                    $message = "user save successful";
+                    $this->set(compact('statusCode','message','firstName','lastName','userName','mobile'));
                 } else {
-                    //   $statusCode = 204;
-                    // $this->set(compact('statusCode', 'errors'));
-                    $errors["statuscode"] = 204;
-                    echo json_encode($errors);
+                    $statusCode = 204;
+                    $message="Something went wrong. Please try again later.";
+                    $this->set(compact('statusCode','message'));
                 }
             } else {
-                $response = array();
-                $response['statuscode'] = 405;
-                $response['msg'] = "No other methods than POST are allowed.";
-                echo json_encode($response);
+                $statusCode = 405;
+                $message = "No other methods than POST are allowed.";
+                $this->set(compact('statusCode','message'));
             }
         } else {
-            $response = array();
-            $response["statuscode"] = 415;
-            $response['msg'] = "Api key must be set in Request Header.";
-            echo(json_encode($response));
+            $statusCode = 415;
+            $message = "Api key must be set in Request Header.";
+            $this->set(compact('statusCode','message'));
         }
     }
 
@@ -120,14 +104,14 @@ class UsersController extends AppController
                 $username = $this->request->data('username');
                 if (empty($username)) {
                     $response = array();
-                    $response['statuscode'] = 408;
-                    $response['msg'] = "Username can't be null";
+                    $statuscode = 408;
+                    $msg = "Username can't be null";
                     echo json_encode($response);
                 }
             } else {
                 $response = array();
-                $response["statuscode"] = 415;
-                $response['msg'] = "Api key must be set in Request Header.";
+                $statuscode = 415;
+                $msg = "Api key must be set in Request Header.";
                 echo(json_encode($response));
             }
 
