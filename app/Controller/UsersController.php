@@ -56,6 +56,29 @@ class UsersController extends AppController
 
     }
 
+    public function view($mobile){
+        $servPassword = $this->request->header('servPassword');
+        if ($servPassword == 'prabhathitenatish') {
+            $result=$this->User->find('all',array('conditions'=>array('User.mobile'=>$mobile)));
+            if($result){
+                $firstName= $result[0]['User']['first_name'];
+                $lastName= $result[0]['User']['last_name'];
+                $mobile= $result[0]['User']['mobile'];
+                $email= $result[0]['User']['email'];
+                $statusCode=200;
+                $this->set(compact('statusCode','firstName','lastName','mobile','email'));
+            }else{
+                $statusCode=204;
+                $message="User is not valid";
+                $this->set(compact('statusCode','message'));
+            }
+        } else {
+            $statusCode = 415;
+            $message = "Api key must be set in Request Header.";
+            $this->set(compact('statusCode','message'));
+        }
+    }
+
     public function add()
     {
         $servPassword = $this->request->header('servPassword');
