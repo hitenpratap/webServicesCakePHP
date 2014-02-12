@@ -12,8 +12,16 @@ class UsersController extends AppController
 
     public function index()
     {
-        $users = $this->User->find('all');
-        $this->set(compact('users'));
+
+        $servPassword = $this->request->header('servPassword');
+        if ($servPassword == 'prabhathitenatish') {
+            $users = $this->User->find('all');
+            $this->set(compact('users'));
+        } else {
+            $statusCode = 415;
+            $message = "Api key must be set in Request Header.";
+            $this->set(compact('statusCode','message'));
+        }
     }
 
     public function checkUserAuthenticate(){
@@ -48,7 +56,7 @@ class UsersController extends AppController
 
     }
 
-    public function saveUser()
+    public function add()
     {
         $servPassword = $this->request->header('servPassword');
         if ($servPassword == 'prabhathitenatish') {
@@ -94,29 +102,28 @@ class UsersController extends AppController
         }
     }
 
-    public function deleteUser()
+    public function delete($mobile)
     {
         $servPassword = $this->request->header('servPassword');
         if ($servPassword == 'prabhathitenatish') {
-            if ($this->request->is("PUT")) {
-
-                //TODO:username is found empty at all the time
-                $username = $this->request->data('username');
-                if (empty($username)) {
-                    $response = array();
-                    $statuscode = 408;
-                    $msg = "Username can't be null";
-                    echo json_encode($response);
+            $result=$this->User->find('all',array('fields'=>array('id','email'),'conditions'=>array('User.mobile'=>$mobile)));
+            if($result){
+                $id= $result[0]['User']['id'];
+                if($this->User->delete($id)){
+                    $statusCode=200;
+                    $message='User with username '.$result[0]['User']['email'].' is successfully deleted from record';
+                    $this->set(compact('statusCode','message'));
                 }
-            } else {
-                $response = array();
-                $statuscode = 415;
-                $msg = "Api key must be set in Request Header.";
-                echo(json_encode($response));
+            }else{
+                $statusCode=204;
+                $message="User is not valid";
+                $this->set(compact('statusCode','message'));
             }
-
+            } else {
+                $statusCode = 415;
+                $message = "Api key must be set in Request Header.";
+                $this->set(compact('statusCode','message'));
         }
-
     }
 
 
