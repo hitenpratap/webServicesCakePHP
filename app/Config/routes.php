@@ -31,6 +31,7 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 Router::mapResources('users');
+Router::mapResources('customers');
 Router::parseExtensions();
 
 /**

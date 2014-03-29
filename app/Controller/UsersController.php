@@ -56,10 +56,10 @@ class UsersController extends AppController
 
     }
 
-    public function view($mobile){
+    public function view($id){
         $servPassword = $this->request->header('servPassword');
         if ($servPassword == 'prabhathitenatish') {
-            $result=$this->User->find('all',array('conditions'=>array('User.mobile'=>$mobile)));
+            $result=$this->User->find('all',array('conditions'=>array('User.id'=>$id)));
             if($result){
                 $firstName= $result[0]['User']['first_name'];
                 $lastName= $result[0]['User']['last_name'];
@@ -99,15 +99,25 @@ class UsersController extends AppController
                     $error=1;
                 }
                 else if($error!=1){
-                    $this->User->query("insert into users values('" . "" . "','" . $usernameForm . "','" . md5($passwordForm) . "','" . $firstNameForm . "','" . $lastNameForm . "','" . $mobileForm . "','" . $dateCreated . "','" . $lastUpdated . "')");
+                    $data = array(
+                        'User' => array(
+                            'username' => $usernameForm,
+                            'firstname' => $firstNameForm,
+                            'lastname' => $lastNameForm,
+                            'mobile' => $mobileForm,
+                            'password' => md5($passwordForm)
+                        )
+                    );
+                    $this->User->save($data);
                     $statusCode = 200;
                     $userName = $usernameForm;
 //                    $passWord = $passwordForm;
                     $firstName = $firstNameForm;
                     $lastName = $lastNameForm;
                     $mobile = $mobileForm;
+                    $serverId=$this->User->getLastInsertId();
                     $message = "user save successful";
-                    $this->set(compact('statusCode','message','firstName','lastName','userName','mobile'));
+                    $this->set(compact('statusCode','message','firstName','lastName','userName','mobile','serverId'));
                 } else {
                     $statusCode = 204;
                     $message="Something went wrong. Please try again later.";
@@ -125,11 +135,11 @@ class UsersController extends AppController
         }
     }
 
-    public function delete($mobile)
+    public function delete($id)
     {
         $servPassword = $this->request->header('servPassword');
         if ($servPassword == 'prabhathitenatish') {
-            $result=$this->User->find('all',array('fields'=>array('id','email'),'conditions'=>array('User.mobile'=>$mobile)));
+            $result=$this->User->find('all',array('fields'=>array('id','email'),'conditions'=>array('User.id'=>$id)));
             if($result){
                 $id= $result[0]['User']['id'];
                 if($this->User->delete($id)){
