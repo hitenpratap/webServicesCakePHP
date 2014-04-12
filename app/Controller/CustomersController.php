@@ -82,49 +82,6 @@ class CustomersController extends AppController
     }
 
 
-    public function addOld()
-    {
-        $servPassword = $this->request->header('servPassword');
-        if ($servPassword == 'prabhathitenatish') {
-            $fullNameForm = $this->request->data('fullname');
-            $emailForm = $this->request->data('email');
-            $mobileForm = $this->request->data('mobile');
-            $dateCreated = date('Y-m-d H:i:s');
-            $lastUpdated = date('Y-m-d H:i:s');
-            global $error;
-            if ($fullNameForm == '' || $mobileForm == '') {
-                $statusCode = 404;
-                $message = "Parameters are missing.Please submit the form again.";
-                $this->set(compact('statusCode', 'message'));
-                $error = 1;
-            } else if ($error != 1) {
-                $data = array(
-                    'Customer' => array(
-                        'fullName' => $fullNameForm,
-                        'email' => $emailForm,
-                        'mobile' => $mobileForm
-                    )
-                );
-                $this->Customer->save($data);
-                $statusCode = 200;
-                $fullName = $fullNameForm;
-                $email = $emailForm;
-                $mobile = $mobileForm;
-                $serverId = $this->Customer->getLastInsertId();
-                $message = "Customer save successful";
-                $this->set(compact('statusCode', 'message', 'fullName', 'email', 'mobile', 'serverId'));
-            } else {
-                $statusCode = 204;
-                $message = "Something went wrong. Please try again later.";
-                $this->set(compact('statusCode', 'message'));
-            }
-        } else {
-            $statusCode = 415;
-            $message = "Api key must be set in Request Header.";
-            $this->set(compact('statusCode', 'message'));
-        }
-    }
-
     public function delete($id)
     {
         $servPassword = $this->request->header('servPassword');

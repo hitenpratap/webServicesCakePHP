@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f770a55d-03ef-4fd6-b20d-076ff3efc1b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/CustomersController.php" afterPath="$PROJECT_DIR$/app/Controller/CustomersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/UsersController.php" afterPath="$PROJECT_DIR$/app/Controller/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Customers/json/add.ctp" afterPath="$PROJECT_DIR$/app/View/Customers/json/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="webServicesCakePHP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +28,7 @@
       <file leaf-file-name="CustomersController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/CustomersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="52" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.5271186" vertical-offset="664" max-vertical-offset="2415">
+            <state line="84" column="0" selection-start="3135" selection-end="3135" vertical-scroll-proportion="0.30169493" vertical-offset="1082" max-vertical-offset="1770">
               <folding />
             </state>
           </provider>
@@ -124,6 +121,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -826,7 +826,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/CustomersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="52" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.5271186" vertical-offset="664" max-vertical-offset="2415">
+        <state line="84" column="0" selection-start="3135" selection-end="3135" vertical-scroll-proportion="0.30169493" vertical-offset="1082" max-vertical-offset="1770">
           <folding />
         </state>
       </provider>
