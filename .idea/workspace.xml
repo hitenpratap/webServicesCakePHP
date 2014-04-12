@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f770a55d-03ef-4fd6-b20d-076ff3efc1b6" name="Default" comment="" />
+    <list default="true" id="f770a55d-03ef-4fd6-b20d-076ff3efc1b6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/CustomersController.php" afterPath="$PROJECT_DIR$/app/Controller/CustomersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/UsersController.php" afterPath="$PROJECT_DIR$/app/Controller/UsersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Customers/json/add.ctp" afterPath="$PROJECT_DIR$/app/View/Customers/json/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="webServicesCakePHP.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,19 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CustomersController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CustomersController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/CustomersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="83" selection-start="769" selection-end="777" vertical-scroll-proportion="-8.75" vertical-offset="135" max-vertical-offset="1890">
+            <state line="65" column="52" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.5271186" vertical-offset="664" max-vertical-offset="2415">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="129" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.43220338" vertical-offset="225" max-vertical-offset="2565">
+            <state line="28" column="30" selection-start="755" selection-end="755" vertical-scroll-proportion="5.0" vertical-offset="540" max-vertical-offset="2565">
               <folding />
             </state>
           </provider>
@@ -53,7 +58,7 @@
       <file leaf-file-name="add.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Customers/json/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="85" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
+            <state line="2" column="121" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -133,10 +138,10 @@
         <option value="$PROJECT_DIR$/app/View/Customers/json/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/Users/json/add.ctp" />
         <option value="$PROJECT_DIR$/app/Model/User.php" />
-        <option value="$PROJECT_DIR$/app/View/Customers/json/add.ctp" />
         <option value="$PROJECT_DIR$/app/Config/routes.php" />
-        <option value="$PROJECT_DIR$/app/Controller/CustomersController.php" />
         <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/View/Customers/json/add.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/CustomersController.php" />
       </list>
     </option>
   </component>
@@ -146,7 +151,7 @@
     <option name="width" value="1301" />
     <option name="height" value="773" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -422,6 +427,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f770a55d-03ef-4fd6-b20d-076ff3efc1b6" name="Default" comment="" />
@@ -434,7 +456,7 @@
     <frame x="65" y="0" width="1301" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -755,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Customers/json/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="85" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="31" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="1365" />
@@ -777,13 +792,6 @@
     <entry file="file://$PROJECT_DIR$/app/Model/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="1" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/CustomersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="83" selection-start="769" selection-end="777" vertical-scroll-proportion="-8.75" vertical-offset="135" max-vertical-offset="1890">
           <folding />
         </state>
       </provider>
@@ -804,7 +812,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="129" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.43220338" vertical-offset="225" max-vertical-offset="2565">
+        <state line="28" column="30" selection-start="755" selection-end="755" vertical-scroll-proportion="5.0" vertical-offset="540" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Customers/json/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="121" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/CustomersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="52" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.5271186" vertical-offset="664" max-vertical-offset="2415">
           <folding />
         </state>
       </provider>

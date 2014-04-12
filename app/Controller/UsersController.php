@@ -28,8 +28,8 @@ class UsersController extends AppController
         $servPassword=$this->request->header('servPassword');
         if($servPassword=='prabhathitenatish'){
             if($this->request->is('POST')){
-                $username=$this->request->header('username');
-                $password=$this->request->header('password');
+                $username=$this->request->data('username');
+                $password=$this->request->data('password');
                 $users=$this->User->find('all',array('conditions'=>array('User.email'=>$username,'User.password' => md5($password))));
                 if($users){
                     $statusCode=200;
